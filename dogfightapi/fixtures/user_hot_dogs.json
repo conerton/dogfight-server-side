@@ -3,7 +3,7 @@
         "model": "dogfightapi.userhotdog",
         "pk": 1,
         "fields": {
-            "user_id": 1,
+            "user_id": 2,
             "hot_dog": 16,
             "date_completed": 1607976016291,
             "is_favorite": false,
