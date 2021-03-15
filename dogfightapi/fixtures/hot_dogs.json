@@ -1,0 +1,344 @@
+[
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 1,
+        "fields": {
+            "name": "New York #1",
+            "toppings": "Deli Mustard, Sauerkraut",
+            "image": "hello"
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 2,
+        "fields": {
+            "name": "New York #2",
+            "toppings": "Deli Mustard, Sauerkraut, Onion Sauce",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 3,
+        "fields": {
+            "name": "Jersey Italian",
+            "toppings": "Deli mustard, Fried Potatoes, Grilled Onions & Peppers -add Marinara on request",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 4,
+        "fields": {
+            "name": "Jersey Breakfast",
+            "toppings": "Bacon, Shredded Cheese, Fried Egg",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 5,
+        "fields": {
+            "name": "Boston 'Hottie'",
+            "toppings": "Chili, Pepper Jack Cheese, Sour Cream",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 6,
+        "fields": {
+            "name": "Boston 'Nor Easter'",
+            "toppings": "Maple Baked Beans, Bacon",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 7,
+        "fields": {
+            "name": "Buffalo",
+            "toppings": "Wing Sauce, Bleu Cheese Crumbles",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 8,
+        "fields": {
+            "name": "Northern Mass.",
+            "toppings": "Mustard, Sweet Relish",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 9,
+        "fields": {
+            "name": "New Hampshire",
+            "toppings": "Mustard, Sweet Relish, Onions",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 10,
+        "fields": {
+            "name": "Rhode Island",
+            "toppings": "Chili, Onion, Mustard, Celery Sale",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 11,
+        "fields": {
+            "name": "Washington D.C.",
+            "toppings": "Banana Peppers, Onions, Diced Red Peppers, Pickles, Mayo",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 12,
+        "fields": {
+            "name": "Baltimore",
+            "toppings": "Bacon, Cole Slaw",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 13,
+        "fields": {
+            "name": "Connecticut",
+            "toppings": "Mustard, Bacon, Sauerkraut, Onion, Maine Onion Sauce, Mustard, Celery Salt",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 14,
+        "fields": {
+            "name": "Pennsylvania 'Mop Dog'",
+            "toppings": "Mustard, Onion, Pickle Spear",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 15,
+        "fields": {
+            "name": "Pennsylvania 'Italian'",
+            "toppings": "Marinara sauce, Provolone or Mozzarella cheese",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 16,
+        "fields": {
+            "name": "Pittsburgh",
+            "toppings": "Fried Potatoes, Coleslaw, Tomatoes, Provolone Cheese",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 17,
+        "fields": {
+            "name": "East Texas",
+            "toppings": "Chili, Bacon, BBQ Sauce",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 18,
+        "fields": {
+            "name": "West Texas",
+            "toppings": "Bacon, BBQ Sauce, Onion Rings",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 19,
+        "fields": {
+            "name": "Arizona",
+            "toppings": "Bacon, Tomato, Onion, Cheese, Mustard, Salsa, Jalapenos",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 20,
+        "fields": {
+            "name": "Los Angeles",
+            "toppings": "Bacon, Grilled Onions, Cheese, Jalapenos",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 21,
+        "fields": {
+            "name": "Seattle",
+            "toppings": "Sauerkraut, Onions, Cream Cheese",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 22,
+        "fields": {
+            "name": "Guadalajara",
+            "toppings": "Relish, Onions, Tomatoes, Sour Cream",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 23,
+        "fields": {
+            "name": "Tijuana",
+            "toppings": "Jalapenos, Sport Peppers, Onions, Hot Sauce",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 24,
+        "fields": {
+            "name": "Hawaii",
+            "toppings": "Pineapple/Mango Relish",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 25,
+        "fields": {
+            "name": "The Coney",
+            "toppings": "Chili, Onion, Mustard",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 26,
+        "fields": {
+            "name": "Cincinnati",
+            "toppings": "Chili, Cheese, Onion, Mustard",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 27,
+        "fields": {
+            "name": "Chicago",
+            "toppings": "Tomatoes, Onions, Dill pickle spear, Relish, Sport peppers, Mustard, Celery Salt",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 28,
+        "fields": {
+            "name": "Kansas City",
+            "toppings": "Sauerkraut, Swiss Cheese",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 29,
+        "fields": {
+            "name": "Michigan",
+            "toppings": "Sauteed Mushrooms, Cheedar or Swiss Cheese",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 30,
+        "fields": {
+            "name": "Montreal",
+            "toppings": "Deli Mustard, Relish, Cole Slaw, Onions",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 31,
+        "fields": {
+            "name": "Tennessee",
+            "toppings": "Chili, Cole slaw, Onions, Mustard, Relish",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 32,
+        "fields": {
+            "name": "West Virginia",
+            "toppings": "Cole slaw, Onions, Mustard",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 33,
+        "fields": {
+            "name": "Carolina",
+            "toppings": "Chili, Cole slaw, Onions, Mustard",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 34,
+        "fields": {
+            "name": "Georgia",
+            "toppings": "Pimiento Cheese, Cole slaw",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 35,
+        "fields": {
+            "name": "Memphis",
+            "toppings": "Bacon, Grilled Onions, ",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 36,
+        "fields": {
+            "name": "Florida",
+            "toppings": "Sauerkraut, Cole slaw",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 37,
+        "fields": {
+            "name": "Alabama",
+            "toppings": "Chili, Sauerkraut, Pickles, Mustard",
+            "image": ""
+        }
+    },
+    {
+        "model": "dogfightapi.hotdog",
+        "pk": 38,
+        "fields": {
+            "name": "Seattle",
+            "toppings": "Sauerkraut, Onions, Cream Cheese",
+            "image": ""
+        }
+    }
+]
