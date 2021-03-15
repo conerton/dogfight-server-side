@@ -16,5 +16,23 @@
             "groups": [],
             "user_permissions": []
         }
+    },
+      {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "password": "hotdog",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "you@you.com",
+            "first_name": "Sam",
+            "last_name": "Johnson",
+            "email": "you@you.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2020-10-28T14:51:39.989Z",
+            "groups": [],
+            "user_permissions": []
+        }
     }
 ]

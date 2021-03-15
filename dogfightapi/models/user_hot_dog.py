@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from unixtimestampfield.fields import UnixTimeStampField
+from .hot_dog import HotDog
 
 
 class UserHotDog(models.Model):
