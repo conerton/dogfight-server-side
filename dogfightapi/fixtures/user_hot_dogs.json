@@ -1,0 +1,15 @@
+[ 
+    {
+        "model": "dogfightapi.userhotdog",
+        "pk": 1,
+        "fields": {
+            "user_id": 1,
+            "hot_dog": 16,
+            "date_completed": 1607976016291,
+            "is_favorite": false,
+            "note": "Fries on a hotdog?? get outta town",
+            "is_approved": true
+        }
+    }
+
+]
