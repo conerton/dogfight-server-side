@@ -1,9 +1,11 @@
 """View module for handling requests about game types"""
 from django.http import HttpResponseServerError
+from django.core.exceptions import ValidationError
+from rest_framework import status
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
-from dogfightapi.models import UserHotDog
+from dogfightapi.models import UserHotDog, HotDog
 
 
 class UserHotDogs(ViewSet):
@@ -38,9 +40,52 @@ class UserHotDogs(ViewSet):
             user_hot_dogs, many=True, context={'request': request})
         return Response(serializer.data)
 
+    def create(self, request):
+        """Handle POST operations
+
+        Returns:
+            Response -- JSON serialized hot dog instance
+        """
+
+        # Uses the token passed in the `Authorization` header
+
+        # Create a new Python instance of the Game class
+        # and set its properties from what was sent in the
+        # body of the request from the client.
+        u_hot_dog = UserHotDog()
+        u_hot_dog.date_completed = request.data["dateCompleted"]
+
+        u_hot_dog.is_favorite = request.data["isFavorite"]
+        u_hot_dog.note = request.data["note"]
+        u_hot_dog.is_approved = request.data["isApproved"]
+
+        # Use the Django ORM to get the record from the database
+        # whose `id` is what the client passed as the
+        # `gameTypeId` in the body of the request.
+        u_hot_dog.hot_dog = HotDog.objects.get(pk=request.data["hotDogId"])
+
+        u_hot_dog.user = request.auth.user
+
+        # u_hot_dog.user = User.objects.get(user=request.auth.user)
+
+        # Try to save the new u_hot_dog to the database, then
+        # serialize the u_hot_dog instance as JSON, and send the
+        # JSON as a response to the client request
+        try:
+            u_hot_dog.save()
+            serializer = UserHotDogSerializer(
+                u_hot_dog, context={'request': request})
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+        # If anything went wrong, catch the exception and
+        # send a response with a 400 status code to tell the
+        # client that something was wrong with its request data
+        except ValidationError as ex:
+            return Response({"reason": ex.message}, status=status.HTTP_400_BAD_REQUEST)
+
 
 class UserHotDogSerializer(serializers.ModelSerializer):
-    """JSON serializer for game types
+    """JSON serializer for u_hot_dog types
 
     Arguments:
         serializers
