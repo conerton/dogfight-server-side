@@ -6,6 +6,7 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
 from dogfightapi.models import UserHotDog, HotDog
+from django.contrib.auth.models import User
 
 
 class UserHotDogs(ViewSet):
@@ -19,9 +20,12 @@ class UserHotDogs(ViewSet):
         """
         try:
             user_hot_dog = UserHotDog.objects.get(pk=pk)
+
             serializer = UserHotDogSerializer(
                 user_hot_dog, context={'request': request})
             return Response(serializer.data)
+        except UserHotDog.DoesNotExist as ex:
+            return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
         except Exception as ex:
             return HttpResponseServerError(ex)
 
@@ -31,11 +35,33 @@ class UserHotDogs(ViewSet):
         Returns:
             Response -- JSON serialized list of game types
         """
-        user_hot_dogs = UserHotDog.objects.all()
+        user = User.objects.get(pk=request.auth.user.id)
+        user_hot_dogs = UserHotDog.objects.filter(
+            user=user)
+
+        print(user_hot_dogs.query)
 
         # Note the addtional `many=True` argument to the
         # serializer. It's needed when you are serializing
         # a list of objects instead of a single object.
+
+
+# reference code that doesn't make much sense at the moment
+        # order = self.request.query_params.get('order_by', None)
+
+        # if order is not None:
+        #     order_filter = order
+
+        #     if direction is not None:
+        #         if direction == "desc":
+        #             order_filter = f'-{order}'
+
+        #     products = products.order_by(order_filter)
+
+        hot_dog = self.request.query_params.get('hot_dog_id', None)
+        if hot_dog is not None:
+            user_hot_dogs = user_hot_dogs.filter(hot_dog__id=hot_dog)
+
         serializer = UserHotDogSerializer(
             user_hot_dogs, many=True, context={'request': request})
         return Response(serializer.data)
@@ -83,6 +109,24 @@ class UserHotDogs(ViewSet):
         except ValidationError as ex:
             return Response({"reason": ex.message}, status=status.HTTP_400_BAD_REQUEST)
 
+    def destroy(self, request, pk=None):
+        """Handle DELETE requests for a single game
+
+        Returns:
+            Response -- 200, 404, or 500 status code
+        """
+        try:
+            u_hot_dog = UserHotDog.objects.get(pk=pk)
+            u_hot_dog.delete()
+
+            return Response({}, status=status.HTTP_204_NO_CONTENT)
+
+        except UserHotDog.DoesNotExist as ex:
+            return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+
+        except Exception as ex:
+            return Response({'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
 
 class UserHotDogSerializer(serializers.ModelSerializer):
     """JSON serializer for u_hot_dog types
@@ -94,3 +138,4 @@ class UserHotDogSerializer(serializers.ModelSerializer):
         model = UserHotDog
         fields = ('id', 'user', 'hot_dog', 'date_completed',
                   'is_favorite', 'note', 'is_approved')
+        depth = 2
