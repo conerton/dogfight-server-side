@@ -6,5 +6,6 @@
             "name": "dogfight_sql",
             "database": "${workspaceFolder:dogfight-server}/db.sqlite3"
         }
-    ]
+    ],
+    "python.pythonPath": "/Users/shawnconerton/.local/share/virtualenvs/dogfight-server-XLOKXIcL/bin/python"
 }
