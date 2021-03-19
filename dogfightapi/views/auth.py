@@ -46,14 +46,12 @@ def register_user(request):
         username=req_body['username'],
         email=req_body['email'],
         password=req_body['password'],
-        # first_name=req_body['first_name'],
-        # last_name=req_body['last_name']
+        first_name=req_body['first_name'],
+        last_name=req_body['last_name']
     )
-    user_hot_dog = UserHotDog.objects.create(
-        user=new_user
-    )
+
     # Commit the user to the database by saving it
-    user_hot_dog.save()
+
     # Use the REST Framework's token generator on the new user account
     token = Token.objects.create(user=new_user)
     # Return the token to the client
