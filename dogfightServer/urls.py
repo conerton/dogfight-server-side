@@ -20,10 +20,12 @@ from rest_framework import routers
 from dogfightapi.views import register_user, login_user
 from dogfightapi.views import HotDogs
 from dogfightapi.views import UserHotDogs
+from dogfightapi.views import Users
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'hot_dogs', HotDogs, 'hot_dog')
 router.register(r'user_hot_dogs', UserHotDogs, 'user_hot_dog')
+router.register(r'users', Users, 'user')
 urlpatterns = [
     path('', include(router.urls)),
     path('register', register_user),

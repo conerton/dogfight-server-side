@@ -5,7 +5,8 @@ from .hot_dog import HotDog
 
 class UserHotDog(models.Model):
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="hotdogs")
     hot_dog = models.ForeignKey("HotDog", on_delete=models.CASCADE, null=True)
     date_completed = models.IntegerField(null=True)
     is_favorite = models.BooleanField(null=True)
