@@ -108,6 +108,38 @@ class UserHotDogs(ViewSet):
         except ValidationError as ex:
             return Response({"reason": ex.message}, status=status.HTTP_400_BAD_REQUEST)
 
+    def update(self, request, pk=None):
+        """Handle PUT requests for a task
+        Returns:
+            Response -- Empty body with 204 status code
+        """
+
+        sort_parameter = self.request.query_params.get('sortby', None)
+
+        if sort_parameter is not None and sort_parameter == 'user':
+            user = User.objects.get(pk=request.auth.user.id)
+            user_hot_dogs = UserHotDog.objects.filter(
+                user=user)
+
+            serializer = UserHotDogSerializer(
+                user_hot_dogs, many=True, context={'request': request})
+
+        # Grab data from client's request to build a new task instance
+        user_hot_dog = UserHotDog.objects.get(pk=pk)
+        user_hot_dog.hotdogs = request.auth.user
+        user_hot_dog.date_completed = request.data["dateCompleted"]
+        user_hot_dog.is_favorite = request.data["isFavorite"]
+        user_hot_dog.note = request.data["note"]
+        user_hot_dog.is_approved = request.data["isApproved"]
+        # user_hot_dog.is_complete = request.data["isComplete"]
+        user_hot_dog.hot_dog = HotDog.objects.get(pk=request.data["hotDogId"])
+
+        # Save the updated task instance to database,
+        # overwriting the original values.
+        user_hot_dog.save()
+
+        return Response({}, status=status.HTTP_204_NO_CONTENT)
+
     def destroy(self, request, pk=None):
         """Handle DELETE requests for a single game
 
