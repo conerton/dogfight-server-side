@@ -35,9 +35,17 @@ class UserHotDogs(ViewSet):
         Returns:
             Response -- JSON serialized list of game types
         """
-        user = User.objects.get(pk=request.auth.user.id)
-        user_hot_dogs = UserHotDog.objects.filter(
-            user=user)
+        user_hot_dogs = UserHotDog.objects.all()
+
+        sort_parameter = self.request.query_params.get('sortby', None)
+
+        if sort_parameter is not None and sort_parameter == 'user':
+            user = User.objects.get(pk=request.auth.user.id)
+            user_hot_dogs = UserHotDog.objects.filter(
+                user=user)
+
+            serializer = UserHotDogSerializer(
+                user_hot_dogs, many=True, context={'request': request})
 
         print(user_hot_dogs.query)
 
@@ -45,22 +53,13 @@ class UserHotDogs(ViewSet):
         # serializer. It's needed when you are serializing
         # a list of objects instead of a single object.
 
+        # hot_dog = self.request.query_params.get('hot_dog_id', None)
+        # if hot_dog is not None:
+        #     user_hot_dogs = user_hot_dogs.filter(hot_dog__id=hot_dog)
 
-# reference code that doesn't make much sense at the moment
-        # order = self.request.query_params.get('order_by', None)
-
-        # if order is not None:
-        #     order_filter = order
-
-        #     if direction is not None:
-        #         if direction == "desc":
-        #             order_filter = f'-{order}'
-
-        #     products = products.order_by(order_filter)
-
-        hot_dog = self.request.query_params.get('hot_dog_id', None)
-        if hot_dog is not None:
-            user_hot_dogs = user_hot_dogs.filter(hot_dog__id=hot_dog)
+        # user_name = self.request.query_params.get('user_id', None)
+        # if user_name is not None:
+        #     user_hot_dogs = user_hot_dogs.filter(user__id=user_name)
 
         serializer = UserHotDogSerializer(
             user_hot_dogs, many=True, context={'request': request})
